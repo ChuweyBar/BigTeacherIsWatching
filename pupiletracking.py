@@ -62,7 +62,7 @@ def blob_process(img, threshold, detector):
     img = cv2.dilate(img, None, iterations=4)
     img = cv2.medianBlur(img, 5)
     keypoints = detector.detect(img)
-    print(keypoints)
+    #print(keypoints)
     return keypoints
 
 
@@ -86,8 +86,16 @@ def main():
                     #print(eye)
                     keypoints = blob_process(eye, threshold, detector)
                     h,w = eye.shape[:2]
-                    cv2.rectangle(eye,(0,0),(h+10,w),(255,255,255),5)
+                    cv2.rectangle(eye,(0,0),(h+10,w -20),(255,255,255),2)
                     eye = cv2.drawKeypoints(eye, keypoints, eye, (0, 0, 255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+                    coord_pts_x = ([keypoints[idx].pt[0] for idx in range(0, len(keypoints))])
+                    coord_pts_y = ([keypoints[idx].pt[1] for idx in range(0, len(keypoints))])
+                    print(coord_pts_x)
+                    print(coord_pts_y)
+                    if coord_pts_x != []:
+                        if coord_pts_x[0] >= 26 or coord_pts_x[0] <= 20:
+                            print("PAY ATTENTION")
+                            cv2.putText(frame, 'Pay Attention', (50, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (200, 255, 255), 2, cv2.LINE_AA)
         cv2.imshow('image', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
