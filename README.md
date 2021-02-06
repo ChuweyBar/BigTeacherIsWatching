@@ -28,7 +28,7 @@ HackInPlace Feb2021 Project
     Team Challenge: Find creative ways for people to stay resilient and healthy both mentally and physically while sheltering in place.
 </p>
 
-<h3> Health </h3>
+<h3> Education </h3>
 <p>
     Systems of education are always evolving, but last year we saw drastic changes in how we learn. While we’ve made good progress in transitioning to online learning, there still remains much to be done in this space.
 
