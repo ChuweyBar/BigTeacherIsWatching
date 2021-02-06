@@ -1,5 +1,5 @@
 # BigTeacherIsWatching
-HackInPlaceFeb2021 Project
+HackInPlace Feb2021 Project
 
 <h1> Objective </h1>
 <p>
