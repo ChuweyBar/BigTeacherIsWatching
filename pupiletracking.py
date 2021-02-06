@@ -1,8 +1,12 @@
+import time
+
 import cv2
 import numpy as np
 
 
 # init part
+from pygame import event
+
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 detector_params = cv2.SimpleBlobDetector_Params()
@@ -74,6 +78,10 @@ def main():
     cap = cv2.VideoCapture(1)
     cv2.namedWindow('image')
     cv2.createTrackbar('threshold', 'image', 0, 255, nothing)
+
+    count = 0
+    sum = 0
+    msg = 0
     while True:
         _, frame = cap.read()
         face_frame = detect_faces(frame, face_cascade)
@@ -90,12 +98,37 @@ def main():
                     eye = cv2.drawKeypoints(eye, keypoints, eye, (0, 0, 255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
                     coord_pts_x = ([keypoints[idx].pt[0] for idx in range(0, len(keypoints))])
                     coord_pts_y = ([keypoints[idx].pt[1] for idx in range(0, len(keypoints))])
-                    print(coord_pts_x)
-                    print(coord_pts_y)
+                    #print(coord_pts_y)
+                    """
                     if coord_pts_x != []:
-                        if coord_pts_x[0] >= 26 or coord_pts_x[0] <= 20:
-                            print("PAY ATTENTION")
-                            cv2.putText(frame, 'Pay Attention', (50, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (200, 255, 255), 2, cv2.LINE_AA)
+                        if coord_pts_x[0] >= 26:
+                            print("LOOKING LEFT")
+                            cv2.putText(frame, 'LOOKING LEFT', (50, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (200, 255, 255), 2, cv2.LINE_AA)
+                        elif coord_pts_x[0] <= 26 and coord_pts_x[0] >= 20:
+                            print("LOOKING STRAIGHT")
+                            cv2.putText(frame, 'LOOKING STRAIGHT', (50, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (200, 255, 255), 2, cv2.LINE_AA)
+                        else:
+                            print("LOOKING RIGHT")
+                            cv2.putText(frame, 'LOOKING RIGHT', (50, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (200, 255, 255), 2, cv2.LINE_AA)
+                    """
+                    if coord_pts_x!=[]:
+
+                        count += 1
+                        sum+= coord_pts_x[0]
+                        #print(coord_pts_x)
+                        if count == 20:
+                            avg = sum / 20
+                            print(avg)
+                            count = 0
+                            sum = 0
+                            if avg >= 30 or avg <= 24:
+                                cv2.putText(frame, 'Not Paying Attention', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
+                                            (255, 255, 255), 2, cv2.LINE_AA)
+                            #if msg > 0:
+
+                        #if coord_pts_x[0] >= 30 or coord_pts_x[0] <= 19:
+                        #    print("Not looking straight")
+                        #    cv2.putText(frame, 'Pay Attention', (50,75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
         cv2.imshow('image', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
