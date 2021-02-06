@@ -47,3 +47,22 @@ HackInPlace Feb2021 Project
 <p>
     To address the above possibility and issue, we decided to create a rather dystopian solution. Our prototype can serve as an additional feature on Zoom, where student's eyes will be tracked. If they look away, it will be flagged and perhaps, the professor can come back to review these moments. This can give the professor a sense of when a student lost focus and what can potentially be reviewed in the coming days.
 </p>
+
+Pupil Tracking 
+
+The software 1984 provides a solution for online teachers to track students’ attention through OpenCV eye tracking.
+
+The algorithm uses existing face_cascade and eye_cascade classifiers to identify students’ face and eyes on camera. The following is the algorithm explanation:
+
+![alt text](img1.png)
+
+When a face is detected, the algorithm searches for eyes on the top half of the face roi. This reduces chances of mismatching the mouth as an eye. However it can be reversed if we receive complaints about discriminating against people with enormous foreheads.
+
+![alt text](img2.png)
+
+After eyes are located in the top half of the face, The algorithm divides the face into left and right sections to separate the right and left eye. (Left and right is subjective here)
+
+![alt text](img3.png)
+
+Once the eyes are located, the algorithm moves on to determine the pupil’s location relative to where the eye is. The algorithm collectes the average position of the pupil every 20 seconds and determine if the student is current on task or not.
+
