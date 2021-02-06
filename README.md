@@ -7,37 +7,35 @@ HackInPlaceFeb2021 Project
 </p>
 
 <h2> Description of the four challenges: </h2>
-<ul>
-    <li> Home </li>
-    <p>
-        2020 saw record-breaking wildfires, heatwaves, hurricanes, and floods. The increasing severity of natural disasters is just one facet through which climate chnage is affecting our one home - planet earth. 
+<h3> Home </h3>
+<p>
+    2020 saw record-breaking wildfires, heatwaves, hurricanes, and floods. The increasing severity of natural disasters is just one facet through which climate chnage is affecting our one home - planet earth. 
 
-        Create innovative solutions that help individuals reduce their carbon footprint, and become more resilient to changes in the environment. 
-    </p>
+    Create innovative solutions that help individuals reduce their carbon footprint, and become more resilient to changes in the environment. 
+</p>
 
-    <li> Economy </li>
-    <p>
-        Extended shelter-in-place restrictions, necessitated by the pandemic, have led to significant financial losses for most small and medium-sized businesses, forcing many to permanently close down altogether. 
+<h3> Economy </h3>
+<p>
+    Extended shelter-in-place restrictions, necessitated by the pandemic, have led to significant financial losses for most small and medium-sized businesses, forcing many to permanently close down altogether. 
 
-        Design resourceful methods to help local businesses connect and engage with consumers in the COVID era. 
-    </p>
+    Design resourceful methods to help local businesses connect and engage with consumers in the COVID era. 
+</p>
 
-    <li> Health </li>
-    <p>
-        Even with the ongoing vaccine rollout, the COVID pandemic is still a huge health risk both to us and our communities.
+<h3> Health </h3>
+<p>
+    Even with the ongoing vaccine rollout, the COVID pandemic is still a huge health risk both to us and our communities.
 
-        Find creative ways for people to stay resilient and healthy both mentally and physically while sheltering in place.
-    </p>
+    Find creative ways for people to stay resilient and healthy both mentally and physically while sheltering in place.
+</p>
 
-    <li> Health </li>
-    <p>
-        Systems of education are always evolving, but last year we saw drastic changes in how we learn. While we’ve made good progress in transitioning to online learning, there still remains much to be done in this space.
+<h3> Health </h3>
+<p>
+    Systems of education are always evolving, but last year we saw drastic changes in how we learn. While we’ve made good progress in transitioning to online learning, there still remains much to be done in this space.
 
-        Find ways that we can improve the virtual learning experience for learners and instructors
-    </p>
-</ul>
+    Find ways that we can improve the virtual learning experience for learners and instructors
+</p>
 
-<h3> Team Choice </h3>
+<h4> Team Choice </h4>
 <p> 
     Our team was originally stuck between the theme of Education and Home. Specifically, the issues of climate change and carbon footprint tracking from Home and the anti-cheating mechanism for Education. We ultimately elected to pursue the theme of Education. During the COVID pandemic and the transition to online learning, there has been an increase in academic dishonesty accusations and cheating. But, this already has a solution technologically with lockdown browsers and proctoring during live exams. However, the biggest issue of all was the difficulty in transition from a physical classroom experience to an fully online classroom experience.
 </p>
