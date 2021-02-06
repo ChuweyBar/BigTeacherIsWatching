@@ -37,7 +37,7 @@ HackInPlaceFeb2021 Project
 
 <h3> Team Choice </h3>
 <p> 
-    Our team elected to pursue the theme of Education. During the COVID pandemic and the transition to online learning, there has been an increase in academic dishonesty accusations and cheating. However, the biggest issue of all was the difficulty in transition from a physical classroom experience to an fully online classroom experience.
+    Our team was originally stuck between the theme of Education and Home. Specifically, the issues of climate change and carbon footprint tracking from Home and the anti-cheating mechanism for Education. We ultimately elected to pursue the theme of Education. During the COVID pandemic and the transition to online learning, there has been an increase in academic dishonesty accusations and cheating. But, this already has a solution technologically with lockdown browsers and proctoring during live exams. However, the biggest issue of all was the difficulty in transition from a physical classroom experience to an fully online classroom experience.
 </p>
 
 <p>
@@ -45,5 +45,5 @@ HackInPlaceFeb2021 Project
 </p>
 
 <p>
-    To address the above possibility, we decided to create a rather dystopian solution. Our prototype can serve as an additional feature on Zoom, where student's eyes will be tracked. If they look away, it will be flagged and perhaps, the professor can come back to review these moments. This can give the professor a sense of when a student lost focus and what can potentially be reviewed in the coming days.
+    To address the above possibility and issue, we decided to create a rather dystopian solution. Our prototype can serve as an additional feature on Zoom, where student's eyes will be tracked. If they look away, it will be flagged and perhaps, the professor can come back to review these moments. This can give the professor a sense of when a student lost focus and what can potentially be reviewed in the coming days.
 </p>
