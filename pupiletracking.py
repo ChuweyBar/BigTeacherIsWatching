@@ -42,10 +42,8 @@ def detect_eyes(img, cascade):
         eyecenter = x + w / 2  # get the eye center
         if eyecenter < width * 0.5:
             left_eye = img[y:y + h, x:x + w]
-            cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0 ,0), 2)
         else:
             right_eye = img[y:y + h, x:x + w]
-            cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0 ,0), 2)
     return left_eye, right_eye
 
 
@@ -85,7 +83,10 @@ def main():
                 if eye is not None:
                     threshold = r = cv2.getTrackbarPos('threshold', 'image')
                     eye = cut_eyebrows(eye)
+                    #print(eye)
                     keypoints = blob_process(eye, threshold, detector)
+                    h,w = eye.shape[:2]
+                    cv2.rectangle(eye,(0,0),(h+10,w),(255,255,255),5)
                     eye = cv2.drawKeypoints(eye, keypoints, eye, (0, 0, 255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
         cv2.imshow('image', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
