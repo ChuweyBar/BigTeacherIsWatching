@@ -55,6 +55,7 @@ The software 1984 provides a solution for online teachers to track students’ a
 The algorithm uses existing face_cascade and eye_cascade classifiers to identify students’ face and eyes on camera. The following is the algorithm explanation:
 
 ![alt text](https://imgur.com/a/sA5LPlq)
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/sA5LPlq" data-context="false" ><a href="//imgur.com/a/sA5LPlq"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 When a face is detected, the algorithm searches for eyes on the top half of the face roi. This reduces chances of mismatching the mouth as an eye. However it can be reversed if we receive complaints about discriminating against people with enormous foreheads.
 
