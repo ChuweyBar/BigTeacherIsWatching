@@ -54,15 +54,15 @@ The software 1984 provides a solution for online teachers to track students’ a
 
 The algorithm uses existing face_cascade and eye_cascade classifiers to identify students’ face and eyes on camera. The following is the algorithm explanation:
 
-![alt text](img1.png)
+![alt text](img1.jpg)
 
 When a face is detected, the algorithm searches for eyes on the top half of the face roi. This reduces chances of mismatching the mouth as an eye. However it can be reversed if we receive complaints about discriminating against people with enormous foreheads.
 
-![alt text](img2.png)
+![alt text](img2.jpg)
 
 After eyes are located in the top half of the face, The algorithm divides the face into left and right sections to separate the right and left eye. (Left and right is subjective here)
 
-![alt text](img3.png)
+![alt text](img3.jpg)
 
 Once the eyes are located, the algorithm moves on to determine the pupil’s location relative to where the eye is. The algorithm collectes the average position of the pupil every 20 seconds and determine if the student is current on task or not.
 
