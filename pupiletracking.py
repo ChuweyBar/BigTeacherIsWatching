@@ -72,8 +72,9 @@ def nothing(x):
 
 def main():
     cap = cv2.VideoCapture(1)
+
     fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    out = cv2.VideoWriter_fourcc('output.avi', fourcc, 20.0, (640,480))
+    out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640, 480))
 
     cv2.namedWindow('image')
     cv2.createTrackbar('left', 'image', 0, 255, nothing)
