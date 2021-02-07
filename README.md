@@ -65,7 +65,8 @@ After eyes are located in the top half of the face, The algorithm divides the fa
 
 ![alt text](img3.JPG)
 
-Once the eyes are located, the algorithm moves on to determine the pupil’s location relative to where the eye is. The algorithm collectes the average position of the pupil every Once the eyes are located, the pupil’s location will be located with the use of blob-detection algorithms. We know that the pupil is always the darkest part of the eye so we’ll set a threshold to filter out regions of non-interest. We will then be left with only the pupils, which are our keypoints. We collect the coordinates of these keypoints, the position of the pupil, and average it out over 20 tick intervals and determine if the student is currently on task or not.
+Once the eyes are located, the pupil’s location will be located with the use of blob-detection algorithms. We know that the pupil is always the darkest part of the eye so we’ll set a threshold to filter out regions of non-interest. We will then be left with only the pupils, which are our keypoints. We collect the coordinates of these keypoints, the position of the pupil, and average it out over 30 tick intervals and determine if the student is currently on task or not.
+
 
 
 ![alt_text](cvworking.JPG)
