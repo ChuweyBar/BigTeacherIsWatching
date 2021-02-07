@@ -82,11 +82,13 @@ def main():
 
     count = 0
     sum = 0
-    bothEye = False
+    countdown = 0
+    countup = 0
     while True:
         _, frame = cap.read()
         face_frame = detect_faces(frame, face_cascade)
         if face_frame is not None:
+            countup = 0
             eyes = detect_eyes(face_frame, eye_cascade)
             for eye in eyes:
                 if eye is not None:
@@ -113,14 +115,20 @@ def main():
                                 cv2.putText(frame, 'Not Paying Attention', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
                                             (255, 255, 255), 2, cv2.LINE_AA)
         else:
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            cv2.putText(frame, 'Please Return', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
-                        (255, 255, 255), 2, cv2.LINE_AA)
+            countup += 1
+            if countup > 20:
+                if countdown == 0:
+                    countdown += 5
             # if msg > 0:
 
             #if coord_pts_x[0] >= 30 or coord_pts_x[0] <= 19:
                         #    print("Not looking straight")
                         #    cv2.putText(frame, 'Pay Attention', (50,75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
+        if countdown > 0:
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            cv2.putText(frame, 'Please Return', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
+                        (255, 255, 255), 2, cv2.LINE_AA)
+            countdown -= 1
         cv2.imshow('image', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
