@@ -3,10 +3,6 @@ import time
 import cv2
 import numpy as np
 
-
-# init part
-from pygame import event
-
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 detector_params = cv2.SimpleBlobDetector_Params()
@@ -76,6 +72,9 @@ def nothing(x):
 
 def main():
     cap = cv2.VideoCapture(1)
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    out = cv2.VideoWriter_fourcc('output.avi', fourcc, 20.0, (640,480))
+
     cv2.namedWindow('image')
     cv2.createTrackbar('left', 'image', 0, 255, nothing)
     cv2.createTrackbar('right', 'image', 0, 255, nothing)
@@ -130,9 +129,11 @@ def main():
                         (255, 255, 255), 2, cv2.LINE_AA)
             countdown -= 1
         cv2.imshow('image', frame)
+        out.write(frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     cap.release()
+    out.release()
     cv2.destroyAllWindows()
 
 
