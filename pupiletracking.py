@@ -123,10 +123,13 @@ def main():
                         (255, 255, 255), 2, cv2.LINE_AA)
             cd -= 1
         if countdown > 0:
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             cv2.putText(frame, 'Please Return', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
                         (255, 255, 255), 2, cv2.LINE_AA)
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
+            out.write(frame)
             countdown -= 1
+
         cv2.imshow('image', frame)
         out.write(frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
