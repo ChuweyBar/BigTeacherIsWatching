@@ -83,6 +83,7 @@ def main():
     sum = 0
     countdown = 0
     countup = 0
+    cd = 0
     while True:
         _, frame = cap.read()
         face_frame = detect_faces(frame, face_cascade)
@@ -90,7 +91,6 @@ def main():
             countup = 0
             eyes = detect_eyes(face_frame, eye_cascade)
             for eye in eyes:
-                time.sleep(0.25)
                 if eye is not None:
                     threshold = 42
                     eye = cut_eyebrows(eye)
@@ -104,22 +104,24 @@ def main():
                         count += 1
                         sum += coord_pts_x[0]
                         #print(coord_pts_x)
-                        if count == 20:
-                            avg = sum / 20
+                        if count == 30:
+                            avg = sum / 30
                             print(avg)
                             count = 0
                             sum = 0
                             left = cv2.getTrackbarPos('left', 'image')
                             right = cv2.getTrackbarPos('right', 'image')
                             if avg >= right or avg <= left:
-                                cv2.putText(frame, 'Not Paying Attention', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
-                                            (255, 255, 255), 2, cv2.LINE_AA)
+                                cd += 30
         else:
             countup += 1
             if countup > 20:
                 if countdown == 0:
                     countdown += 5
-
+        if cd > 0:
+            cv2.putText(frame, 'Not Paying Attention', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
+                        (255, 255, 255), 2, cv2.LINE_AA)
+            cd -= 1
         if countdown > 0:
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             cv2.putText(frame, 'Please Return', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
