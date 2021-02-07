@@ -45,28 +45,25 @@ HackInPlace Feb2021 Project by Chuwei (Chewy) Guo, Aaron Chen, Zijie (Jerry) Wu,
 </p>
 
 <p>
-    To address the above possibility and issue, we decided to create a rather dystopian solution. Our prototype can serve as an additional feature on Zoom, where student's eyes will be tracked. If they look away, it will be flagged and perhaps, the professor can come back to review these moments. This can give the professor a sense of when a student lost focus and what can potentially be reviewed in the coming days.
+    Our prototype can serve as an additional feature on Zoom, where student's eyes will be tracked. If they look away, it will be flagged and perhaps, the professor can come back to review these moments. This can give the professor a sense of when a student lost focus and what can potentially be reviewed in the coming days.
 </p>
 
 <h3> Pupil Tracking </h3>
 
-Hello everyone! Today, we will be giving a short demo on our software, 1984, which serves as a solution for professors to track student’s attention through OpenCV eye tracking.
-
-We are basically going to use detection processes, which are just machine-learning-based algorithms that classify between object and non-object images. 
-Our software will use existing face_cascade and eye_cascade classifiers to identify student faces and eyes on video feeds, which are just N pictures (frames) per second. When we detect faces, the faces object is an array with potential sub-arrays consisting of four numbers: X, Y, width, and height of the detected face.
+<b>Possible Introduction<b>: Hello everyone! Today, we will be giving a short demo on our project done for the Hack In Place 2021 Hackathon Theme of Education. During the transition to onlien learning, many professors have noticed that their students are doing worse online. In addition, many teachers are not not able to fully gauge their student's level of understanding remotely. This project serves as an potential solution to the mentioned problems. 
+ 
+Our software will use existing face_cascade and eye_cascade classifiers to identify student faces and eyes. When we detect faces, the faces object is an array with potential sub-arrays consisting of four numbers: X, Y, width, and height of the detected face. We will draw a rectangle with the following information to denote 
 
 ![alt text](img1.JPG)
 
-We will detect eyes the same way. But, we will be working with the face frame instead of the entire picture now. The eyes object is just like faces object — it contains X, Y, width and height of the eyes’ frames. When a face is detected, the algorithm searches for eyes on the top half of the face region of interest. This reduces chances of mismatching the mouth as an eye. However it can be reversed if we receive complaints about discriminating against people with enormous foreheads.
+We will detect eyes the same way. The eyes object is just like faces object — it contains X, Y, width and height of the eyes’ frames. When a face is detected, the algorithm searches for eyes on the top half of the face region of interest.  This reduces chances of mismatching the mouth as an eye. However it can be reversed if we receive complaints about discriminating against people with enormous foreheads.
 
 ![alt text](img2.JPG)
 
-After eyes are located in the top half of the face, The algorithm divides the face into left and right sections to separate the right and left eye. (Left and right is subjective here).
+After eyes are located in the top half of the face, The algorithm divides the face into left and right sections to separate the right and left eye. (Left and right is subjective here). We will then draw rectangles to denote the detected eyes. 
 
 ![alt text](img3.JPG)
 
-Once the eyes are located, the pupil’s location will be located with the use of blob-detection algorithms. We know that the pupil is always the darkest part of the eye so we’ll set a threshold to filter out regions of non-interest. We will then be left with only the pupils, which are our keypoints. We collect the coordinates of these keypoints, the position of the pupil, and average it out over 30 tick intervals and determine if the student is currently on task or not.
-
-
+Once the eyes are located, the pupil’s location will be located with the use of blob-detection algorithms. We know that the pupil is always the darkest part of the eye so we’ll set a threshold to filter out regions of non-interest. We will then be left with only the pupils and then collect the coordinates of the pupils. Average it out over 30 tick intervals and determine if the student is currently on task or not.
 
 ![alt_text](cvworking.JPG)
