@@ -112,9 +112,13 @@ def main():
                             if avg >= right or avg <= left:
                                 cv2.putText(frame, 'Not Paying Attention', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
                                             (255, 255, 255), 2, cv2.LINE_AA)
-                            #if msg > 0:
+        else:
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            cv2.putText(frame, 'Please Return', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
+                        (255, 255, 255), 2, cv2.LINE_AA)
+            # if msg > 0:
 
-                        #if coord_pts_x[0] >= 30 or coord_pts_x[0] <= 19:
+            #if coord_pts_x[0] >= 30 or coord_pts_x[0] <= 19:
                         #    print("Not looking straight")
                         #    cv2.putText(frame, 'Pay Attention', (50,75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
         cv2.imshow('image', frame)
