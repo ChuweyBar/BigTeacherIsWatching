@@ -62,7 +62,6 @@ def blob_process(img, threshold, detector):
     img = cv2.dilate(img, None, iterations=4)
     img = cv2.medianBlur(img, 5)
     keypoints = detector.detect(img)
-    #print(keypoints)
     return keypoints
 
 
@@ -91,6 +90,7 @@ def main():
             countup = 0
             eyes = detect_eyes(face_frame, eye_cascade)
             for eye in eyes:
+                time.sleep(0.25)
                 if eye is not None:
                     threshold = 42
                     eye = cut_eyebrows(eye)
@@ -100,9 +100,9 @@ def main():
                     cv2.rectangle(eye,(0,0),(h+10,w -20),(255,255,255),2)
                     eye = cv2.drawKeypoints(eye, keypoints, eye, (0, 0, 255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
                     coord_pts_x = ([keypoints[idx].pt[0] for idx in range(0, len(keypoints))])
-                    if coord_pts_x!=[]:
+                    if coord_pts_x != []:
                         count += 1
-                        sum+= coord_pts_x[0]
+                        sum += coord_pts_x[0]
                         #print(coord_pts_x)
                         if count == 20:
                             avg = sum / 20
@@ -119,11 +119,7 @@ def main():
             if countup > 20:
                 if countdown == 0:
                     countdown += 5
-            # if msg > 0:
 
-            #if coord_pts_x[0] >= 30 or coord_pts_x[0] <= 19:
-                        #    print("Not looking straight")
-                        #    cv2.putText(frame, 'Pay Attention', (50,75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
         if countdown > 0:
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             cv2.putText(frame, 'Please Return', (50, 75), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 2,
