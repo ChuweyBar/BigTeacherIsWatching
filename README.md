@@ -66,3 +66,4 @@ After eyes are located in the top half of the face, The algorithm divides the fa
 
 Once the eyes are located, the algorithm moves on to determine the pupil’s location relative to where the eye is. The algorithm collectes the average position of the pupil every 20 seconds and determine if the student is current on task or not.
 
+![alt_text](cvworking.JPG)
