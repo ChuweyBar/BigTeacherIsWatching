@@ -77,7 +77,6 @@ def nothing(x):
 def main():
     cap = cv2.VideoCapture(1)
     cv2.namedWindow('image')
-    cv2.createTrackbar('threshold', 'image', 0, 255, nothing)
     cv2.createTrackbar('left', 'image', 0, 255, nothing)
     cv2.createTrackbar('right', 'image', 0, 255, nothing)
 
@@ -91,7 +90,7 @@ def main():
             eyes = detect_eyes(face_frame, eye_cascade)
             for eye in eyes:
                 if eye is not None:
-                    threshold = r = cv2.getTrackbarPos('threshold', 'image')
+                    threshold = 42
                     eye = cut_eyebrows(eye)
                     #print(eye)
                     keypoints = blob_process(eye, threshold, detector)
