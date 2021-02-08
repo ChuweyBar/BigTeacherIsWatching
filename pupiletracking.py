@@ -89,6 +89,8 @@ def main():
         face_frame = detect_faces(frame, face_cascade)
         if face_frame is not None:
             countup = 0
+            hf,wf = face_frame.shape[:2]
+            cv2.rectangle(face_frame, (0,0), (hf,wf),(255,0,255),2)
             eyes = detect_eyes(face_frame, eye_cascade)
             for eye in eyes:
                 if eye is not None:
@@ -97,7 +99,7 @@ def main():
                     #print(eye)
                     keypoints = blob_process(eye, threshold, detector)
                     h,w = eye.shape[:2]
-                    cv2.rectangle(eye,(0,0),(h+10,w -20),(255,255,255),2)
+                    cv2.rectangle(eye,(0,0),(h+10,w -20),(255,255,0),2)
                     eye = cv2.drawKeypoints(eye, keypoints, eye, (0, 0, 255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
                     coord_pts_x = ([keypoints[idx].pt[0] for idx in range(0, len(keypoints))])
                     if coord_pts_x != []:
